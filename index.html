@@ -605,13 +605,12 @@ Return ONLY a valid JSON array, zero other text, no markdown fences. Up to 25 po
 engagement = "high" if comments > 50, "medium" if 10-50, "low" if <10.
 Only include actual Reddit troubleshooting posts. Skip news, announcements, or non-problem discussions.`;
 
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+     const res = await fetch('https://anthropic-proxy.infor-c3b.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'x-api-key': apiKey,
-          'anthropic-version': '2023-06-01',
-          'anthropic-beta': 'web-search-2025-03-05'
+          
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
